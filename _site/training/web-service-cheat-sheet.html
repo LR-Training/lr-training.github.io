@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Testing Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../stylesheets/bootswatch-paper.css" media="screen">
+    <link rel="stylesheet" href="../stylesheets/bootswatch-min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+    <script>
+
+     var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23019901-1']);
+      _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  </head>
+
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="../" class="navbar-brand">Test Site</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="training">Training <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="training">
+              <li><a href="../training/">Training Home</a></li>
+              <li class="divider"></li>
+              <li><a href="https://github.com/LR-Training/training-environment">Vagrant Training Environment</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="../tools/">Tools</a>
+          </li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="templates">Test Templates <span class="caret"></span></a>
+            <ul class="dropdown-menu" aria-labelledby="templates">
+              <li><a href="../templates/">Tailored Test Templates</a></li>
+              <li class="divider"></li>
+              <li><a href="../templates/strategy.html">Test Strategy</a></li>
+              <li><a href="../templates/testplan.html">Test Plan</a></li>
+            </ul>
+          </li>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="bs-component">
+  <h2>What is a web service?</h2>
+  <h2>What is a web service?</h2>
+  <p>A simple definition: A web service is a function that can be accessed by other programs over the web (Http). To clarify a bit, when you create a website in RUBY/JAVA/PHP that outputs HTML its target is the browser and by extension the human being reading the page in the browser. A web service is not targeted at humans but rather at other programs.</p>
+  <p>So your PHP site that generates a random integer could be a web service if it outputs the integer in a format that may be consumed by another program. It might be in an XML format or another format, as long as other programs can understand the output</p>
+  <h2>What is a rest service?</h2>
+  <p>In short it's an architectural style, and has nothing technically to do with HTTP or the web. HTTP and a lot of the web, however enable and follow the REST architectural style.</p>
+  <p>But in truth the term REST has been watered down and it now is almost synonymous with HTTP based API of some sort.</p>
+  <p>When developers talk about implementing or using a REST API they usually mean something along the lines of documenting URI templates for all their resources, and use GET to retrieve something, PUT to modify something, DELETE to delete something and POST to do anything else (like create or accept or modify something)</p>
+  <p>These APIs typically</p>
+  <ul>
+    <li>give each interesting thing (resource) in their system their own URI</li>
+    <li>use the "uniform interface" (GET, PUT, POST, DELETE) on these URIs to work with the resources</li>
+    <li>use standard types of authentication schemes</li>
+    <li>are stateless, in that each request is independent of any previous request</li>
+  </ul>
+  <p>are stateless, in that each request is independent of any previous request</p>
+  <h2>How do you view a web service?</h2>
+  <p>An example URL of a web service is:</p>
+  <p><a href="http://lrq00103452:8082/OracleRestProject-0.0.1-SNAPSHOT/rest-getAddress/0.1/getaddressbypostcode/BH15%204PP">http://lrq00103452:8082/OracleRestProject-0.0.1-SNAPSHOT/rest-getAddress/0.1/getaddressbypostcode/BH15%204PP</a></p>
+  <h2>When you view a web service, what is displayed?</h2>
+  <p>A rest service will normally either display JSON or XML.</p>
+  <p>JSON Example (normally displayed as a single line):</p>
+  <pre>{"surname":"Bloggs",
+"forename":"Fred",
+"age":"35"}</pre>
+<p>XML Example:</p>
+<pre>&lt;hash>
+&lt;surname>Bloggs&lt;/surname>
+&lt;forename>Fred&lt;/forename>
+&lt;age>35&lt;/age>
+&lt;/hash></pre>
+<p>Both of the outputs are structured and a computer is able to understand this data?</p>
+<h2>Why would you use a web service?</h2>
+<ul>
+  <li><strong>Exposing the existing function on to network:</strong></br>
+A Web service is a unit of managed code that can be remotely invoked using HTTP, that is, it can be activated using HTTP requests. So, Web Services allows you to expose the functionality of your existing code over the network. Once it is exposed on the network, other application can use the functionality of your program.</li>
+  <li><strong>Connecting Different Applications ie Interoperability:</strong></br>
+Web Services allows different applications to talk to each other and share data and services among themselves. Other applications can also use the services of the web services. For example VB or .NET application can talk to java web services and vice versa. So, Web services is used to make the application platform and technology independent.</li>
+  <li><strong>Standardized Protocol:</strong></br>
+Web Services uses standardized industry standard protocol for the communication. All the four layers (Service Transport, XML Messaging, Service Description and Service Discovery layers) uses the well defined protocol in the Web Services protocol stack. This standardization of protocol stack gives the business many advantages like wide range of choices, reduction in the cost due to competition and increase in the quality.
+<li><strong>Low Cost of communication:</strong></br>
+Web Services uses SOAP over HTTP protocol for the communication, so you can use your existing low cost internet for implementing Web Services. This solution is much less costly compared to proprietary solutions like EDI/B2B. Beside SOAP over HTTP, Web Services can also be implemented on other reliable transport mechanisms like FTP etc.</li>
+</ul>
+</div>
+
+  <footer>
+  <div class="row">
+    <div class="col-lg-12">
+
+      <ul class="list-unstyled">
+        <li class="pull-right"><a href="#top">Back to top</a></li>
+      </ul>
+      <p>Site by <a href="" rel="nofollow">Geoff Lewis</a>. Contact him at <a href="mailto:geoffrey.lewis@landregistry.gsi.gov.uk">geoffrey.lewis@landregistry.gsi.gov.uk</a>.</p>
+
+    </div>
+  </div>
+
+</footer>
+
+</body>
+</html>
