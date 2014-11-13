@@ -84,9 +84,312 @@
 
   <div class="page-header" id="banner">
     <div class="row">
-      <div class="col-lg-8 col-md-7 col-sm-6">
+      <div class="col-lg-10 col-md-7 col-sm-6">
         <h1>Test Strategy Template</h1>
-        <p class="lead">info</p>
+        <div class="bs-component">
+          <h2>Introduction</h2>
+          <p>This test strategy is based on the <a href="https://www.gov.uk/service-manual/making-software/testing-in-agile.html">GDS agile framework</a> to be used by highly collaborative self organisinhg teams who focus on user needs with continuous incremental improvement</p>
+          <h3>Purpose of document</h3>
+          <p>The purpose of this Test Strategy is to create a shared understanding of the overall targets, approach, tools and timing of test activities. Our objective is to achieve higher quality using team collaboration, continuous integration, short feedback loops and frequent changes of the design. Test strategy guides us through the common obstacles with a clear view of how to evaluate the system at each level. Testing becomes a continuous and integrated process where all parties in the project are involved.</p>
+          <h2>Guiding standards</h2>
+          <ul>
+            <li><strong>Shared responsibility</strong> - Everyone in the team is responsible for quality</li>
+            <li><strong>Data management</strong> - Test data will be automatically generated where possible. Production data must be analysed before use and kept within LR infrastructure unless express permission is provided</li>
+            <li><strong>Test automation</strong> - All levels and types of testing (unit, functional, regression, performance and security) will be automated as far as feasible and will follow Behavioural driven development (BDD) with continuous integration (CI)</li>
+            <li><strong>Test management</strong> - documentation will be light however tests will trace through to user stories/ requirements and sufficient documentation including a regression maintenance pack will be delivered alongside the applications</li>
+          </ul>
+
+          </div>
+          <div class="bs-docs-section">
+
+            <div class="row">
+              <div class="col-lg-19">
+                <h2>Quality and test objectives</h2>
+                <div class="bs-component">
+                  <table class="table table-striped table-hover ">
+                    <thead>
+                      <tr>
+                        <th>Feature</th>
+                        <th>Description</th>
+                        <th>Measure and target</th>
+                        <th>Priority</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Accuracy</td>
+                        <td>Features and functions work as proposed (i.e. as per requirements)</td>
+                        <td>100% completion of agreed features with open</br>
+Severity 1 defects = 0</br>
+Severity 2 defects = 0</br>
+Severity 3 defects < 5</br>
+Severity 4 defects < 10</td>
+                        <td>Must have</td>
+                      </tr>
+                      <tr>
+                        <td>Integrity</td>
+                        <td>Ability to prevent unauthorized access, prevent information loss, protect from viruses infection, protect privacy of data entered</td>
+                        <td>All access is via HTTPS (over a secured connection).</br>
+User passwords and session tokens are encrypted.</td>
+                        <td>Must have</td>
+                      </tr>
+                      <tr>
+                        <td>Maintainability</td>
+                        <td>Ease to add features, correct defects or release changes to the system</td>
+                        <td>Code Duplication < 5%</br>
+Code Complexity < 8</br>
+Unit Test Coverage > 80%</br>
+Method Length < 20 Lines</td>
+                        <td>Must have</td>
+                      </tr>
+                      <tr>
+                        <td>Availability</td>
+                        <td>Percentage of planned up-time that the system is required to operate</td>
+                        <td>System is available for 99.99% for the time measured through system logs.</td>
+                        <td>should have</td>
+                      </tr>
+                      <tr>
+                        <td>Interoperability</td>
+                        <td>Ease with which the system can exchange information with other systems User interface renders and functions properly on the following (and later) browsers versions: </td>
+                        <td>IE version = 9.0</br>
+Firefox version = 18.0</br>
+Safari version = 5.0</br>
+Chrome version 11.0</td>
+                        <td>Must have</td>
+                      </tr>
+                      <tr>
+                        <td>Performance</td>
+                        <td>Responsiveness of the system under a given load and the ability to scale to meet growing demand.</td>
+                        <td>Response Time < 200ms</br>
+Throughput > 100 pm</td>
+                        <td>should have</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+                <h2>Test scope</h2>
+                <p>...high level function areas </p>
+                <h3>In scope</h3>
+                <ul>
+                  <li>...</li>
+                </ul>
+                <h3>Out of scope</h3>
+                <ul>
+                  <li>...</li>
+                </ul>
+
+                <h2>Test approach</h2>
+                <div class="bs-docs-section">
+                  <div class="row">
+                    <div class="col-lg-19">
+                      <h3>Test types</h3>
+                      <div class="bs-component">
+                        <table class="table table-striped table-hover ">
+                          <thead>
+                            <tr>
+                              <th>Type</th>
+                              <th>Definition</th>
+                              <th>Tools</th>
+                              <th>Execution/ timing</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Unit testing</td>
+                              <td>Testing that verifies the implementation of software elements in isolation</td>
+                              <td>python unit tests</td>
+                              <td>before raising pull request</td>
+                            </tr>
+                            <tr>
+                              <td>Code analysis (static and dynamic)</td>
+                              <td>Walkthrough and code analysis </td>
+                              <td>buddy check, coverall</td>
+                              <td>during pull request</td>
+                            </tr>
+                            <tr>
+                              <td>Integration testing</td>
+                              <td>Testing in which software elements, hardware elements, or both are combined and tested until the entire system has been integrated</td>
+                              <td>Jenkins, cucumber tests</td>
+                              <td>In integration environment</td>
+                            </tr>
+                            <tr>
+                              <td>Functional and Feature testing</td>
+                              <td>Testing an integrated hardware and software system to verify that the system meets required functionality: </br>
+100% requirements coverage</br>
+100% coverage of the main flows</br>
+100% of the highest risks covered</br>
+Operational scenarios tested</br>
+Operational manuals tested</br>
+All failures are reported</td>
+                              <td>cucumber, capybara, phantomJS, poltergeist</td>
+                              <td>along side development</td>
+                            </tr>
+                            <tr>
+                              <td>System testing</td>
+                              <td>Testing the whole system with end to end flow</td>
+                              <td>cucumber, capybara, phantomJS, poltergeist</td>
+                              <td>In CI environment and staging</td>
+                            </tr>
+                            <tr>
+                              <td>Security testing</td>
+                              <td>Verify secure access, transmission and password/ session security</td>
+                              <td>flask framework, cucumber, gauntlet</td>
+                              <td>In CI environment and staging</td>
+                            </tr>
+                            <tr>
+                              <td>Environment testing</td>
+                              <td>Testing on each supported platform/ browser</td>
+                              <td>vagrant, virtualbox, cucumber</td>
+                              <td>In CI environment and staging</td>
+                            </tr>
+                            <tr>
+                              <td>Performance and availability testing</td>
+                              <td>Load, scalability and endurance tests</td>
+                              <td>loadrunner</td>
+                              <td>In staging environment</td>
+                            </tr>
+                            <tr>
+                              <td>Data conversion testing</td>
+                              <td>Performed to verify the correctness of automated or manual conversions and/or loads of data in preparation for implementing the new system</td>
+                              <td>cucumber, RSPEC</td>
+                              <td>In CI environment</td>
+                            </tr>
+                            <tr>
+                              <td>Regression testing</td>
+                              <td>Testing all the prior features and re-testing previously closed bugs</td>
+                              <td>cucumber, capybara, phantomJS, poltergeist</td>
+                              <td>In CI environment</td>
+                            </tr>
+                            <tr>
+                              <td>Acceptance testing</td>
+                              <td>esting based on acceptance criteria to enable the customer to determine whether or not to accept the system</td>
+                              <td>cucumber, capybara, phantomJS, poltergeist</td>
+                              <td>In CI and staging environment</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <h3>Test preparation</h3>
+                      <p>user stories will be used to capture requirements which will have acceptance criteria and are an invite for discussion.</p>
+                      <div class="bs-docs-section">
+                        <div class="row">
+                          <div class="col-lg-19">
+                            <h4>Behavioural driven development (BDD)</h4>
+                            <div class="bs-component">
+                              <table class="table table-striped table-hover ">
+                                <thead>
+                                  <tr>
+                                    <th>Step</th>
+                                    <th>Description</th>
+                                    <th>Participants</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>1. Discuss</td>
+                                    <td>Discuss or workshop to create a shared understanding of the required feature/ user stories. Identify real-life scenarios and examples that have realistic context.</td>
+                                    <td>product owner</br>
+business analyst</br>
+developer</br>
+quality assurance</br>
+others like user research/ experts as required</td>
+                                  </tr>
+                                  <tr>
+                                    <td>2. Distill</td>
+                                    <td>Distill the required feature into an executable specification based upon the user stories, examples and acceptance criteria. Specifications are kept in human readable form using the following format:</br>
+<strong>Feature/Story: Title</strong></br>
+&nbsp;In order to [value]</br>
+&nbsp;As a [role]</br>
+&nbsp;I want [feature]</br>
+</br>
+<strong>Scenario Outline: Title</strong></br>
+&nbsp;Given [context]</br>
+&nbsp;And [more context]</br>
+&nbsp;When [event]</br>
+&nbsp;Then [outcome]</br>
+&nbsp;And [another outcome]</td>
+                                    <td>business analyst</br>
+developer</br>
+quality assurance</br></td>
+                                  </tr>
+                                  <tr>
+                                    <td>3. Develop</td>
+                                    <td>Develop the required feature using automated test-first practices. Automated acceptance tests are built around the identified scenarios. Automated unit and integration tests are used to support the implementation.</td>
+                                    <td>developer</br>
+quality assurance</td>
+                                  </tr>
+                                  <tr>
+                                    <td>4. Signoff</td>
+                                    <td>Demonstrate the implementation by running the acceptance tests and performing manual exploratory tests.</td>
+                                    <td>product owner</br>
+business analyst</br>
+developer</br>
+quality assurance</td>
+                                  </tr>
+                                </tbody>
+                                </table>
+                              </div>
+
+                <h3>Environments</h3>
+                <p>The process of promoting code up through the environments is...</p>
+                <div class="bs-docs-section">
+                  <div class="row">
+                    <div class="col-lg-19">
+                      <div class="bs-component">
+                        <table class="table table-striped table-hover ">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Description</th>
+                              <th>Data setup</th>
+                              <th>Test Usage</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>Development</td>
+                              <td>This environment is local and specific to each developer/tester machine. It is based on the version/branch of source code being developed. Integration points are typically impersonated.</td>
+                              <td>Data and configuration is populated through setup scripts.</td>
+                              <td>Unit, Functional and Acceptance Tests.</td>
+                            </tr>
+                            <tr>
+                              <td>Continuous integration</td>
+                              <td>This environment supports continuous integration of code changes and execution of unit, functional and acceptance tests. Additionally, static code analysis is completed in this environment.</td>
+                              <td>Data and configuration is populated through setup scripts.</td>
+                              <td>Unit, Functional and Acceptance Tests.</td>
+                            </tr>
+                            <tr>
+                              <td>Staging</td>
+                              <td>This environment support exploratory testing</td>
+                              <td>Populated with obfuscated production data</td>
+                              <td>Exploratory testing</td>
+                            </tr>
+                            <tr>
+                              <td>Production</td>
+                              <td>Live environment</td>
+                              <td>New instances will contain standard project reference data. Existing instances will have current data migrated into the environment</td>
+                              <td>Production verification testing</td>
+                            </tr>
+                          </tbody>
+                          </table>
+                        </div>
+                <h3>Test execution</h3>
+                <p>steps to execute the tests to prepare for a release</p>
+                <ul>
+                  <li>Steps to build the system: ...</li>
+                  <li>Steps to execute automated tests: ...</li>
+                  <li>Steps to populate environment with reference data: …</li>
+                  <li>Steps to generate test report/code metrics: ..</li>
+                </ul>
+                <h3>Test data management</h3>
+                <p>how to identify and manage test data...</p>
+                <ul>
+                  <li>System and user acceptance tests – a subset of production data could be used to initialize the test environment. ...</li>
+                  <li>Performance/volume/stress test – full size production files should be used to test the performance and volume aspects of the test. ...</li>
+                </ul>
+                <h3>Defect management</h3>
+                <p> defects are only raised and recorded when they are not going to be fixed immediately. In this case, the conditions under which they occur and the severity needs to be accurately recorded so that the defect can be easily reproduced and then fixed. </p>
 
       </div>
     </div>
