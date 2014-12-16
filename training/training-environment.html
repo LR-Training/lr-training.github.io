@@ -1,0 +1,167 @@
+---
+  layout: default
+  title: Training Environment exercises
+---
+
+<div class="bs-component col-lg-11">
+  <h2>Overview</h2>
+  <h2>Overview</h2>
+  <p>In order to provide practical training of some concepts, A vagrant provisioned machine is available with some web applications. After getting this there is then basic commands for inputting a into a form and then confirming the data is displayed using the capybara library.</p>
+  <h2>Set up training environment</h2>
+  <p>There are the following pre requisites to install</p>
+  <ul>
+    <li>Vagrant <a href="https://www.vagrantup.com">https://www.vagrantup.com</a></li>
+    <li>Virtual Box <a href="https://www.virtualbox.org">https://www.virtualbox.org</a></li>
+    <li>Git <a href="http://git-scm.com">http://git-scm.com</a></li>
+  </ul>
+  <p>In the terminal, navigate to the folder you want to copy the environment to and type in the following command to clone the project from Git <pre>git clone https://github.com/LR-Training/training-environment.git</pre></p>
+  <p>Now navigate into the directory 'training-environment' and start the virtual machine by typing the following <pre>vagrant up</pre></p>
+  <p>You should now have a local sinatra server running that can be accessed at <a href="http://localhost:4567">http://localhost:4567</a></p>
+  </br>
+  <p>The login page has the following passwords:</p>
+  <div class="bs-component col-lg-6">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>user@example.org</td>
+          <td>password</td>
+          <td>Logs in to the system successfully</td>
+        </tr>
+        <tr>
+          <td>blocked@example.org</td>
+          <td>password</td>
+          <td>Displays a message that the user is blocked</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="bs-component col-lg-11">
+  <p>by logging in with the user a link to the menu with 'Details form' is displayed. When selected a form will appear asking for various details which will be shown back to you when submitted.</p>
+  <h2>Testing a basic web form</h2>
+  <p>The basic site is now set up so the next parts of this guide will give you information to create a features file (done with 3 Amigos) and commands for automating through the form and how to check details on a webpage. This gets you using capybara which is a web library. The challenge after of course is to then automate the system with this information</p>
+<h3>Set up cucumber workspace</h3>
+<p>A basic <a href="../training/assets/training-testing.zip">cucumber test structure</a> has been created for you and can be unzipped to a location</p>
+<ul>
+  <li>Create another tab in your terminal to the folder 'training-testing' you have just unzipped</li>
+  <li>install bundler <pre>gem install bundler</pre></li>
+  <li>install Gemfile dependecies by running the following <pre>sudo bundle install</pre>This actually installs all the gems that are required by looking at the Gemfile</li>
+</ul>
+<h3>Create feature file</h3>
+<p>First of all the 3 amigo meeting is held to define the behaviours of the system. Also known as the gherkin format</p>
+<p>The feature file must have a filename with the extension of '.feature'</p>
+<p>A sample feature file called 'example.feature' looks like the following
+  <pre>Feature: example
+
+<strong>Scenario:</strong> name of my scenario
+<strong>Given</strong> I have my data
+<strong>and</strong> I am at the input form
+<strong>When</strong> I complete the form
+<strong>Then</strong> my info is displayed
+</pre></p>
+<p>The given, when and then can be repeated in order to replicate the needed scenario. Think about how the step definitions will be called as it may need to be adjusted to fit after the ‘3 Amigos’. The step wording can also be re-used in other scenarios so make them accurate but re-usable (logging in for example). do not make them too complicated, create several lines if required.</p>
+<p>Do not dwell on wording and accept that it will need to be improved and changed later!</p>
+<p>Given - set up data to use and insert if needed and get to the right location
+</br>When - trigger the action like completing a form and selecting to submit it
+</br>Then - check the expected action is performed through assertions for front end or reading from a web service API</p>
+<h3>Create step definitions</h3>
+<p>The step definitions are where the steps are now written in code to interact with the system. the two basic interactions are inputting details into the system and then validating the correct response or output is provided. Some commands are provided below:</p>
+<h4>Entering details/ navigating pages</h4>
+<p>To test a web page the capybara library makes it easy. The following code inputs into the various input fields.</p>
+</div>
+<div class="bs-component col-lg-6">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Form input</th>
+        <th>Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>re-use a cucumber step</td>
+        <td>step “step name”</td>
+      </tr>
+      <tr>
+        <td>Go to a URL</td>
+        <td>visit “http://www.example.com”</td>
+      </tr>
+      <tr>
+        <td>Press a link</td>
+        <td>click_link('name')</td>
+      </tr>
+      <tr>
+        <td>Input box</td>
+        <td>fill_in('field', :with => $data['field'])</td>
+      </tr>
+      <tr>
+        <td>Radio button</td>
+        <td>choose('name')</td>
+      </tr>
+      <tr>
+        <td>select menu</td>
+        <td>select($data, :from => "dropdownName")</td>
+      </tr>
+      <tr>
+        <td>Press a button</td>
+        <td>click_button(‘button name')</td>
+      </tr>
+      <tr>
+        <td>select a checkbox</td>
+        <td>check(‘name')</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="bs-component col-lg-11">
+<h4>Checking expected output</h4>
+<p>Details will need to be checked to match text or to confirm the correct page is displayed</p>
+<p>Use xpath to be specific on identifying fields. An easy way to find the xpath is with firebug/ fire path which are plugins to the firefox browser. Use relative xpath such as .//*[@class=‘title-flag'] this will be more resilient when the page changes. Work with the developer of the page to add ‘ID’ tags as these will not change and will make it easier to identify objects
+</p>
+</div>
+</div>
+<div class="bs-component col-lg-6">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>What it does</th>
+        <th>When used</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>assert_match(‘matched text’, page.body, ‘error message')</td>
+        <td>it checks an area of text. In this case page.body with the matched text. It will include the error message if the test fails</td>
+        <td>This is very inefficient and matches against a lot of text so the word being matched may exist but not where expected. Used as last resort</td>
+      </tr>
+      <tr>
+        <td>ind(“text”)</td>
+        <td>returns object of the find or returns false</td>
+        <td>often used with xpath but gets form elements to interrogate through code</td>
+      </tr>
+      <tr>
+        <td>assert_equal has_button?(‘button_name'), true, ‘error if not there'</td>
+        <td>checks the existence of the button and displays a message if its not true</td>
+        <td>quicker way to determine if a button exists</td>
+      </tr>
+      <tr>
+        <td>assert_no_selector(".//*[@id='name']")</td>
+        <td>Confirm that the object does not exist</td>
+        <td>should be used often to confirm lack of existence of something on the page</td>
+      </tr>
+      <tr>
+        <td>assert_selector(".//*[@id='name']", text: /#{$variable} extra text/)</td>
+        <td>confirms that the text identified in the selector matches the text to match</td>
+        <td>used regularly to confirm text matches. Very quick and efficient to run</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
