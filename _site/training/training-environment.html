@@ -125,12 +125,12 @@
   <h2>Testing a basic web form</h2>
   <p>The basic site is now set up so the next parts of this guide will give you information to create a features file (done with 3 Amigos) and commands for automating through the form and how to check details on a webpage. This gets you using capybara which is a web library. The challenge after of course is to then automate the system with this information</p>
 <h3>Set up cucumber workspace</h3>
-<p>A basic <a href="../training/assets/training-testing.zip">cucumber test structure</a> has been created for you and can be unzipped to a location</p>
-<ul>
-  <li>Create another tab in your terminal to the folder 'training-testing' you have just unzipped</li>
-  <li>install bundler <pre>gem install bundler</pre></li>
-  <li>install Gemfile dependecies by running the following <pre>sudo bundle install</pre>This actually installs all the gems that are required by looking at the Gemfile</li>
-</ul>
+<p>Normally the tests would be stored in the same repository as the code but for these training purposes a second VM will be used that contains all the required files and framework to write cucumber acceptance tests</p>
+<p>In the terminal, navigate to the folder you want to copy the cucumber environment to and type in the following command to clone the project from Git <pre>git clone https://github.com/LR-Training/cucumber-environment.git</pre></p>
+<p>Now navigate into the directory 'cucumber-environment' and start the virtual machine by typing the following as you did for the other VM<pre>vagrant up</pre></p>
+<p>You will need to use 'putty' if on the diti network or ssh if not in to 'get into' cucumber-environment VM by typing <pre> vagrant ssh</pre></p>
+<p>In order to access another VM from a VM itself port forwarding is being used but the URL to use is http://10.0.2.2 instead of http://localhost. The port is still required so to access the sinatra server http://10.0.2.2:4567 must be used!</p>
+
 <h3>Create feature file</h3>
 <p>First of all the 3 amigo meeting is held to define the behaviours of the system. Also known as the gherkin format</p>
 <p>The feature file must have a filename with the extension of '.feature'</p>
@@ -164,11 +164,11 @@
     <tbody>
       <tr>
         <td>re-use a cucumber step</td>
-        <td>step “step name”</td>
+        <td>step "step name"</td>
       </tr>
       <tr>
         <td>Go to a URL</td>
-        <td>visit “http://www.example.com”</td>
+        <td>visit ("http://www.example.com")</td>
       </tr>
       <tr>
         <td>Press a link</td>
@@ -188,11 +188,11 @@
       </tr>
       <tr>
         <td>Press a button</td>
-        <td>click_button(‘button name')</td>
+        <td>click_button('button name')</td>
       </tr>
       <tr>
         <td>select a checkbox</td>
-        <td>check(‘name')</td>
+        <td>check('name')</td>
       </tr>
     </tbody>
   </table>
@@ -215,17 +215,17 @@
     </thead>
     <tbody>
       <tr>
-        <td>assert_match(‘matched text’, page.body, ‘error message')</td>
+        <td>assert_match('matched text', page.body, 'error message')</td>
         <td>it checks an area of text. In this case page.body with the matched text. It will include the error message if the test fails</td>
         <td>This is very inefficient and matches against a lot of text so the word being matched may exist but not where expected. Used as last resort</td>
       </tr>
       <tr>
-        <td>find(“text”)</td>
+        <td>find("text")</td>
         <td>returns object of the find or returns false</td>
         <td>often used with xpath but gets form elements to interrogate through code</td>
       </tr>
       <tr>
-        <td>assert_equal has_button?(‘button_name'), true, ‘error if not there'</td>
+        <td>assert_equal has_button?('button_name'), true, 'error if not there'</td>
         <td>checks the existence of the button and displays a message if its not true</td>
         <td>quicker way to determine if a button exists</td>
       </tr>
